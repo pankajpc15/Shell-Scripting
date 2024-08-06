@@ -1,0 +1,5 @@
+sudo apt-get update
+sudo apt-get install docker.io
+sudo usermod -aG docker ubuntu
+sudo chown ubuntu /var/run/docker.sock
+sudo apt-get install docker-compose-v2
