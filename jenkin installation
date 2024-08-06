@@ -1,0 +1,66 @@
+#  Connect to the instance via SSH:    
+
+sh -i /path/to/your-key.pem ubuntu@your-instance-ip
+
+# Install Java on the instance:   
+
+sudo apt update     
+sudo apt install fontconfig openjdk-17-jre
+
+# Install Jenkins on the instance:  
+
+
+ sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+
+#  Add Jenkins repository to your system:
+
+
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+
+# Update your package index:
+
+sudo apt-get update
+
+# Install Jenkins:
+
+sudo apt-get install jenkins
+systemctl start jenkins
+systemctl enable jenkins
+
+###########################################################################################################################################################
+# connecting worker node to jenkins master node:
+
+# launch an EC2 Instance for Jenkins Agent and while launching ensure that the security group ssh, https and http is enabled.
+
+# Establish a passwordless SSH connection between the Jenkins-Master EC2 instance and the Jenkins-Agent EC2 instance. Try connecting to the Jenkins-Agent via SSH from the Jenkins-Master node.
+
+#  Check if you can connect to the Jenkins agent via SSH. If the connection is successful, exit from the Jenkins agent. Open a new terminal, log in to the Jenkins agent,
+#  connecting worker node to jenkins master node:
+
+# install java 
+
+sudo apt update     
+sudo apt install fontconfig openjdk-17-jre
+
+# install docker and give nessesary persmission to docker group
+  
+sudo apt-get install docker.io
+
+
+
+#install docker-compose-v2
+sudo apt-get install docker-compose-v2
+
+mkdir app/
+
+copy path and paste into remote root directory
+
+
+
+
+
