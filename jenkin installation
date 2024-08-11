@@ -50,6 +50,7 @@ sudo apt install fontconfig openjdk-17-jre
 # install docker and give nessesary persmission to docker group
   
 sudo apt-get install docker.io
+sudo usermod -aG docker $USER
 
 
 
